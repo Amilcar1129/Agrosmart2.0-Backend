@@ -193,7 +193,12 @@ const listSurveys = async (req, res) => {
       whereCondition.estado = estado;
     }
 
-    const include = [{ association: 'comunidad' }, { association: 'usuario' }];
+      const include = [
+      { association: 'comunidad' },
+      { association: 'usuario' },
+      { association: 'cultivos' },    // ← Agregar
+      { association: 'animales' }     // ← Agregar
+    ];
 
     if (rol === 'coordinador' && canton_asignado) {
       include[0].where = { canton: canton_asignado };
