@@ -9,6 +9,10 @@ const { dbConnect } = require('./config/database');
 const authRoutes = require('./routes/auth.routes');
 const surveyRoutes = require('./routes/survey.routes');
 const communityRoutes = require('./routes/community.routes');
+const publicRoutes = require('./routes/public.routes')
+const adminRoutes = require('./routes/admin.routes');
+ 
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +32,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/survey', surveyRoutes);
 app.use('/api/communities', communityRoutes);
+
+//Para la web
+app.use('/api/public', publicRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Manejador de errores genérico
 app.use((err, req, res, next) => {

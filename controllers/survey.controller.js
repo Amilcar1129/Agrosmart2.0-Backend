@@ -196,8 +196,8 @@ const listSurveys = async (req, res) => {
       const include = [
       { association: 'comunidad' },
       { association: 'usuario' },
-      { association: 'cultivos' },    // ← Agregar
-      { association: 'animales' }     // ← Agregar
+      { association: 'cultivos' },    
+      { association: 'animales' }     
     ];
 
     if (rol === 'coordinador' && canton_asignado) {
